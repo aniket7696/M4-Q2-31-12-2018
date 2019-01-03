@@ -1,0 +1,68 @@
+//email:
+<asp:RegularExpressionValidator ID="valEmail" runat="server" ControlToValidate="txtEmail"
+            ErrorMessage="Invalid Email Address" 
+            ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator><br />
+
+//website Address:
+<asp:RegularExpressionValidator ID="valWebsite" runat="server" ControlToValidate="txtWebsite"
+            ErrorMessage="Invalid URL" 
+            ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?"></asp:RegularExpressionValidator><br />
+
+//password confirmation using compare Validator
+Confirm Password:
+<asp:TextBox ID="txtConfirmPass" runat="server" TextMode="Password" 
+            ValidationGroup="pass"></asp:TextBox>
+        <asp:CompareValidator ID="valComparepassword" runat="server" ControlToCompare="txtPassword"
+            ControlToValidate="txtConfirmPass" 
+            ErrorMessage="Password are not identical" ValidationGroup="1" Display="Static"></asp:CompareValidator>
+
+//ValidationSummary
+ <asp:ValidationSummary ID="valsSummary" runat="server" HeaderText="The Following Errors Occured"
+            ShowMessageBox="false" ShowSummary="true" />
+
+//6 digit
+ <asp:RegularExpressionValidator runat="server" ID="expId" ValidationExpression="[0-9]{6}"
+                Text="Please Enter 6 Digit Emp Id" ErrorMessage="Enter 6 Digit Emp Id" ControlToValidate="txtStudId"/>
+
+//only alphabets
+<asp:RegularExpressionValidator runat="server" ControlToValidate="txtStudName" ValidationExpression="[A-Z][a-z]{2,29}" 
+		ErrorMessage="Name should start with Capital letter"></asp:RegularExpressionValidator>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  Comparing with a given Value
+        <asp:Label ID="lblSample" runat="server" Font-Bold="True" Font-Size="16pt"></asp:Label><br />
+        Type the data as shown above<br />
+        <asp:TextBox ID="txtSample" runat="server" ValidationGroup="ImageVerification"></asp:TextBox>
+        <asp:CompareValidator ID="valValueCompare" runat="server" ControlToValidate="txtSample"
+            ErrorMessage="Invalid" ValidationGroup="1" Display="Static"></asp:CompareValidator><br />
+        <br />
+        <asp:Button ID="btnValueSubmit" runat="server" Text="Submit" 
+            ValidationGroup="1" /></div>
